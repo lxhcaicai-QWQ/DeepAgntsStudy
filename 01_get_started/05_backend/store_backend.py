@@ -1,9 +1,10 @@
-# Under the hood, it looks like
 import os
 
 from deepagents import create_deep_agent
-from deepagents.backends import StateBackend
 from langchain_openai import ChatOpenAI
+from langgraph.store.memory import InMemoryStore
+from deepagents.backends import StoreBackend
+
 
 BASE_URL = os.getenv("OPENAI_BASE_URL")      # 例如 https://api.your-service.com/v1
 API_KEY = os.getenv("OPENAI_API_KEY")
@@ -18,9 +19,10 @@ llm = ChatOpenAI(
 )
 
 agent = create_deep_agent(
-    model=llm,
-    backend=(lambda rt: StateBackend(rt))   # Note that the tools access State through the runtime.state
+    backend=(lambda rt: StoreBackend(rt)),
+    store=InMemoryStore()  # Good for local dev; omit for LangSmith Deployment
 )
+
 
 result1 = agent.invoke({"messages": [{"role": "user", "content": "帮我创建个test.txt,记录我今天出深圳湾公园玩的计划"}]})
 result2 = agent.invoke({"messages": [{"role": "user", "content": "从test.txt获取的内容是什么"}]})
