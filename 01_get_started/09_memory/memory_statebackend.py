@@ -28,6 +28,7 @@ with urlopen("https://raw.githubusercontent.com/langchain-ai/deepagents/refs/hea
 checkpointer = MemorySaver()
 
 agent = create_deep_agent(
+    model=llm,
     memory=[
         "/AGENTS.md"
     ],
