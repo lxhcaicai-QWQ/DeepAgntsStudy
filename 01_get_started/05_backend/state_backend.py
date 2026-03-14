@@ -24,5 +24,3 @@ agent = create_deep_agent(
 
 result1 = agent.invoke({"messages": [{"role": "user", "content": "帮我创建个test.txt,记录我今天出深圳湾公园玩的计划"}]})
 result2 = agent.invoke({"messages": [{"role": "user", "content": "从test.txt获取的内容是什么"}]})
-
-1
