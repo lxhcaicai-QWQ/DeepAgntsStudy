@@ -22,8 +22,7 @@ agent = create_deep_agent(
     backend=(lambda rt: StateBackend(rt))   # Note that the tools access State through the runtime.state
 )
 
-result1 = agent.invoke({"messages": [{"role": "user", "content": "你好，我叫caicai"}]})
-result2 = agent.invoke({"messages": [{"role": "user", "content": "你还记得我名字吗？"}]})
+result1 = agent.invoke({"messages": [{"role": "user", "content": "帮我创建个test.txt,记录我今天出深圳湾公园玩的计划"}]})
+result2 = agent.invoke({"messages": [{"role": "user", "content": "从test.txt获取的内容是什么"}]})
 
-print("result1: "+ result1["messages"][-1].content)
-print("result2: "+ result2["messages"][-1].content)
+1
