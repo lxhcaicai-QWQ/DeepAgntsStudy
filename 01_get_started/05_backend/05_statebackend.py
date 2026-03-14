@@ -23,7 +23,7 @@ agent = create_deep_agent(
 )
 
 result1 = agent.invoke({"messages": [{"role": "user", "content": "你好，我叫caicai"}]})
-
 result2 = agent.invoke({"messages": [{"role": "user", "content": "你还记得我名字吗？"}]})
 
-print(result2["messages"][-1].content)
+print("result1: "+ result1["messages"][-1].content)
+print("result2: "+ result2["messages"][-1].content)
